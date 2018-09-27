@@ -1,0 +1,41 @@
+{
+	"name": "WetherApp",
+	"version": "0.0.1",
+	"description": "Wether SPA",
+	"author": "Kurochkin Artem",
+	"scripts": {
+		"dev": "webpack-dev-server --hot --open",
+		"build": "webpack",
+		"build-vendors": "webpack --config ./vendor-webpack.config.js"
+	},
+	"dependencies": {
+		"@angular/common": "~6.0.0",
+		"@angular/compiler": "~6.0.0",
+		"@angular/core": "~6.0.0",
+		"@angular/forms": "~6.0.0",
+		"@angular/platform-browser": "~6.0.0",
+		"@angular/platform-browser-dynamic": "~6.0.0",
+		"@angular/router": "~6.0.0",
+		"core-js": "2.5.7",
+		"rxjs": "6.2.2",
+		"zone.js": "0.8.26"
+	},
+	"devDependencies": {
+		"@types/node": "10.5.2",
+		"typescript": "~3.0.0",
+		"webpack": "~4.0.0",
+		"webpack-cli": "3.1.0",
+		"webpack-dev-server": "3.1.4",
+		"DllPlugin": "",
+		"DllReferencePlugin": "",
+		"angular2-template-loader": "0.6.2",
+		"css-loader": "~1.0.0",
+		"style-loader": "~0.23.0",
+		"less-loader": "~4.1.0",
+		"less": "~3.8.1",
+		"raw-loader": "0.5.1",
+		"awesome-typescript-loader": "5.2.0",
+		"uglifyjs-webpack-plugin": "~2.0.1",
+		"webpack-parallel-uglify-plugin": "~1.1.0"
+	}
+}
