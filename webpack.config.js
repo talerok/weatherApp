@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-var UglifyJSPlugin = require('webpack-parallel-uglify-plugin'); // плагин минимизации
+var UglifyJSPlugin = require('webpack-parallel-uglify-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -51,12 +52,14 @@ module.exports = {
     ),
 	new webpack.DllReferencePlugin({
 	   context: '.',
-	   manifest: require('./src/vendor/dll/vendor-manifest.json'),
-	   name: 'vendor.js'
+	   manifest: require('./src/vendor/dll/vendor-manifest.json')
     }),
-    new UglifyJSPlugin({
+	new CopyWebpackPlugin([
+		{ from: './src/vendor/dll/vendor.bundle.js', to: path.resolve(__dirname, './public/vendor.bundle.js') }
+	],{}),
+    /*new UglifyJSPlugin({
 		uglifyJS: {
       }	
-	}),
+	}),*/
   ]
 }
