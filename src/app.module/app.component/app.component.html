@@ -1,23 +1,22 @@
-<div class='content'>
-	<div class='logo'>
-		Привет {{SearchString}}!
-	</div>
-	
-	<div class='menu'>
-		<input [(ngModel)]="SearchString"/>
-		<button (click)="FindCity(SearchString)">Поиск</button>
-		<div>
-			<div *ngFor="let City of Cities" (click)="LoadWeather(City)">
-				<div>
-					{{City.name}}
-				</div>
-				<div>
-					{{City.description}}
+<div class='page' (click)="HideFoundCities(true)">	
+	<div class='content'>
+		<div class="search-panel">
+			<input [(ngModel)]="SearchString" (input)="onInputChange($event.target.value)" (click)="onInputClick($event)" placeholder="Введите название населенного пункта">
+			<div [hidden]="IsHideFoundCities" class="found-cities">
+				<div class="found-city" *ngFor="let City of FoundCities" (click)="SelectCity($event,City)">
+					<div>
+						{{City.description}}
+					</div>
 				</div>
 			</div>
-			<div *ngIf="Weather">
-				{{Weather.temperture}}
-			</div>
+		</div>
+		<div class="Weather" *ngIf="Weather">
+			<div class="temperture">{{Weather.temperture}}</div>
+			<div class="pressure">{{Weather.pressure}}</div>
+			<div class="humidity">{{Weather.humidity}}</div>
+			<div class="clouds">{{Weather.clouds}}</div>
+			<div class="temperture">{{Weather.temperture}}</div>
+			<div class="windInfo">{{Weather.windInfo.speed}}</div>
 		</div>
 	</div>
 </div>
