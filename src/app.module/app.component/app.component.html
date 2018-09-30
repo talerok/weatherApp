@@ -1,9 +1,23 @@
 <div class='content'>
 	<div class='logo'>
-		Привет {{name}}!
+		Привет {{SearchString}}!
 	</div>
 	
 	<div class='menu'>
-		<input [(ngModel)]="name"/>
+		<input [(ngModel)]="SearchString"/>
+		<button (click)="FindCity(SearchString)">Поиск</button>
+		<div>
+			<div *ngFor="let City of Cities" (click)="LoadWeather(City)">
+				<div>
+					{{City.name}}
+				</div>
+				<div>
+					{{City.description}}
+				</div>
+			</div>
+			<div *ngIf="Weather">
+				{{Weather.temperture}}
+			</div>
+		</div>
 	</div>
 </div>
