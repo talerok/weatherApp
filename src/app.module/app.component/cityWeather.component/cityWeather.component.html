@@ -1,0 +1,21 @@
+<div class="weather-container" [class.active]="Show && City && Weather">
+	<div class="refresh-ico" *ngIf="City && Weather" (click)="Refresh()"></div>
+	<div class="weather" *ngIf="City && Weather">
+		<div class="temperture">
+			{{FormatTemp(Weather.temperture)}}°
+		</div>
+		<div class="clouds">
+				<div class="ico {{FormatCloudsIco(Weather.clouds)}}"></div>
+				{{FormatClouds(Weather.clouds)}}
+		</div>
+		<div class="pressure">
+			давление: {{Weather.pressure}} мм. рт. ст.
+		</div>
+		<div class="humidity">	
+			влажность: {{Weather.humidity}}%
+		</div>
+		<div class="windInfo">
+			ветер: {{Weather.windInfo.speed}} м/с, {{FormatWindDirection(Weather.windInfo.degree)}}
+		</div>
+	</div>
+</div>
