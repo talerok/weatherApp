@@ -1,11 +1,14 @@
 import { Component, Input, Output, HostListener, ElementRef, EventEmitter } from '@angular/core';
 
+interface MultipleRequestsDelegate<T>{
+    (elems : T) : void;
+}
+
 //чтобы при множестве запросов, срабатывал только посл.
 class MultipleRequests<T>{
     private _requests : number = 0;
 
-    //в typescript нет делегатов :/
-    constructor(private _delegate : any, private _defaultValue : T) { }
+    constructor(private _delegate : MultipleRequestsDelegate<T>, private _defaultValue : T) { }
 
     public Reset(){
         this._requests = 0;
@@ -95,9 +98,19 @@ class SelectableArray<T>{
 
 }
 
-export class InputDropdownSettings{
-    constructor(public readonly GetPromise : any, public readonly GetElemInfo : any, public readonly PlaceHolder: string){
+interface InputDropdownSettingsPromiseDeleage{
+    (str : string) : Promise<any>;
+}
 
+interface InputDropdownSettingsInfoDelegate{
+    (obj : any) : string;
+}
+
+export class InputDropdownSettings{
+    constructor(
+        public readonly GetPromise :  InputDropdownSettingsPromiseDeleage, 
+        public readonly GetElemInfo : InputDropdownSettingsInfoDelegate, 
+        public readonly PlaceHolder: string){
     }
 }
 
