@@ -60,3 +60,5 @@ typings/
 # next.js build output
 .next
 package-lock.json
+src/vendor/dll/vendor-manifest.json
+src/vendor/dll/vendor.bundle.js

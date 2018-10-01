@@ -1,3 +1,3 @@
-cd ..
-echo 'Updage packages'
+cd ../..
 npm install 
+exit 0

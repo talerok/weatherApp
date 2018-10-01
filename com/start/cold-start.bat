@@ -1,4 +1,6 @@
-cd ..
-npm install 
-npm run build-vendors
-npm run dev
+cd ..\other
+call download-modules.bat 
+cd com\other
+call ..\other\build-vendor.bat 
+cd com\start
+call start.bat
