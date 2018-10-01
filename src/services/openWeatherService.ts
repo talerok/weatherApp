@@ -43,7 +43,7 @@ export class openWeatherService implements IWeatherService {
     private _getWeather(info: any) : weatherInfo {
         return new weatherInfo(
             info.main.temp - 273.15,
-            info.main.pressure,
+            Number((info.main.pressure * 0.75).toFixed(0)),
             info.main.humidity,
             info.clouds.all,
             new windInfo(

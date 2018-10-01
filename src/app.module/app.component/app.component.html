@@ -1,22 +1,48 @@
 <div class='page' (click)="HideFoundCities(true)">	
+	<div class='logo'>
+		weatherApp
+	</div>
+	<div class="description">
+		...just another one useless app
+	</div>
+
 	<div class='content'>
 		<div class="search-panel">
-			<input [(ngModel)]="SearchString" (input)="onInputChange($event.target.value)" (click)="onInputClick($event)" placeholder="Введите название населенного пункта">
+			<input [(ngModel)]="SearchString" 
+				(input)="onInputChange($event.target.value)" 
+				(click)="onInputClick($event)" 
+				(keydown.arrowup)="FoundCities.Prev()" 
+				(keydown.arrowdown)="FoundCities.Next()" 
+				(keydown.enter)="onInputPressEnter()"
+				placeholder="Введите название населенного пункта">
 			<div [hidden]="IsHideFoundCities" class="found-cities">
-				<div class="found-city" *ngFor="let City of FoundCities" (click)="SelectCity($event,City)">
+				<div class="found-city" *ngFor="let City of FoundCities.Get()" 
+				[class.selected]="FoundCities.Selected() === City" 
+				(click)="SelectCity(City, $event)" 
+				(mouseenter)="FoundCities.Select(City)">
 					<div>
 						{{City.description}}
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="Weather" *ngIf="Weather">
-			<div class="temperture">{{Weather.temperture}}</div>
-			<div class="pressure">{{Weather.pressure}}</div>
-			<div class="humidity">{{Weather.humidity}}</div>
-			<div class="clouds">{{Weather.clouds}}</div>
-			<div class="temperture">{{Weather.temperture}}</div>
-			<div class="windInfo">{{Weather.windInfo.speed}}</div>
+		<div class="weather" *ngIf="Weather">
+			<div class="temperture">
+				{{FormatTemp(Weather.temperture)}}°
+			</div>
+			<div class="clouds">
+					<div class="ico {{FormatCloudsIco(Weather.clouds)}}"></div>
+					{{FormatClouds(Weather.clouds)}}
+			</div>
+			<div class="pressure">
+				давление: {{Weather.pressure}} мм. рт. ст.
+			</div>
+			<div class="humidity">	
+				влажность: {{Weather.humidity}}%
+			</div>
+			<div class="windInfo">
+				ветер: {{Weather.windInfo.speed}} м/с, {{FormatWindDirection(Weather.windInfo.degree)}}
+			</div>
 		</div>
 	</div>
 </div>

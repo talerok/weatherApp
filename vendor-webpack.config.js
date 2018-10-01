@@ -14,7 +14,7 @@ module.exports = {
 				'@angular/router',
 				'core-js',
 				'rxjs',
-				'zone.js']
+                'zone.js']
 	},
  
    output: {
