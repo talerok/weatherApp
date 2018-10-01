@@ -33,6 +33,7 @@ class MultipleRequests<T>{
 
 }
 
+//вспом. класс
 class SelectableArray<T>{
     private static _dafaultIndex = -1; 
     private _array : T[];
@@ -122,6 +123,10 @@ export class AppComponent {
 
     public HideFoundCities(hide : boolean){
         this.IsHideFoundCities = hide;
+    }
+
+    public CloseAllDropdowns(){
+        this.HideFoundCities(true);
     }
 
     private _mRequests = new MultipleRequests<cityInfo[]>(

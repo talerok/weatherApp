@@ -1,4 +1,4 @@
-<div class='page' (click)="HideFoundCities(true)">	
+<div class='page' (click)="CloseAllDropdowns()">	
 	<div class='logo'>
 		weatherApp
 	</div>
@@ -26,22 +26,25 @@
 				</div>
 			</div>
 		</div>
-		<div class="weather" *ngIf="Weather">
-			<div class="temperture">
-				{{FormatTemp(Weather.temperture)}}°
-			</div>
-			<div class="clouds">
-					<div class="ico {{FormatCloudsIco(Weather.clouds)}}"></div>
-					{{FormatClouds(Weather.clouds)}}
-			</div>
-			<div class="pressure">
-				давление: {{Weather.pressure}} мм. рт. ст.
-			</div>
-			<div class="humidity">	
-				влажность: {{Weather.humidity}}%
-			</div>
-			<div class="windInfo">
-				ветер: {{Weather.windInfo.speed}} м/с, {{FormatWindDirection(Weather.windInfo.degree)}}
+		<div class="weather-container" [class.active]="Weather && IsHideFoundCities">
+			<div class="refresh-ico" *ngIf="Weather" (click)="LoadSelectedCityWeather()"></div>
+			<div class="weather" *ngIf="Weather">
+				<div class="temperture">
+					{{FormatTemp(Weather.temperture)}}°
+				</div>
+				<div class="clouds">
+						<div class="ico {{FormatCloudsIco(Weather.clouds)}}"></div>
+						{{FormatClouds(Weather.clouds)}}
+				</div>
+				<div class="pressure">
+					давление: {{Weather.pressure}} мм. рт. ст.
+				</div>
+				<div class="humidity">	
+					влажность: {{Weather.humidity}}%
+				</div>
+				<div class="windInfo">
+					ветер: {{Weather.windInfo.speed}} м/с, {{FormatWindDirection(Weather.windInfo.degree)}}
+				</div>
 			</div>
 		</div>
 	</div>
