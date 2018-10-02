@@ -49,19 +49,19 @@ export class CityWeatherComponent {
     public FormatWindDirection(ang : number){
         if(ang >= 330 || ang < 30)
             return "С";
-        if(ang >= 30 || ang < 60)
+        if(ang >= 30 && ang < 60)
             return "СВ";
-        if(ang >= 60 || ang < 120)
+        if(ang >= 60 && ang < 120)
             return "В";
-        if(ang >= 120 || ang < 150)
+        if(ang >= 120 && ang < 150)
             return "ЮВ";
-        if(ang >= 150 || ang < 210)
+        if(ang >= 150 && ang < 210)
             return "Ю";
-        if(ang >= 210 || ang < 240)
+        if(ang >= 210 && ang < 240)
             return "ЮЗ"; 
-        if(ang >= 240 || ang < 300)
+        if(ang >= 240 && ang < 300)
             return "З";
-        if(ang >= 300 || ang < 330)
+        if(ang >= 300 && ang < 330)
             return "СЗ";
     }
 

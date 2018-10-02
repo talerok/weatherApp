@@ -7,26 +7,26 @@ interface MultipleRequestsDelegate<T>{
 //чтобы при множестве запросов, срабатывал только посл.
 class MultipleRequests<T>{
     private _requests : number = 0;
-
+    private _lastPromise: Promise<T> = null;
     constructor(private _delegate : MultipleRequestsDelegate<T>, private _defaultValue : T) { }
 
     public Reset(){
-        this._requests = 0;
+        this._lastPromise = null;
         if(this._defaultValue)
             this._delegate(this._defaultValue);
     }
 
     public InProgress() : boolean{
-        return this._requests !== 0;
+        return !!this._lastPromise;
     }
 
     public async Get(promise : Promise<T>){
-        this._requests++;
+        this._lastPromise = promise;
         let res = await promise;
-        if(this._requests === 1)
+        if(this._lastPromise === promise){
+            this._lastPromise = null;
             this._delegate(res)
-        if(this._requests !== 0)
-            this._requests--;
+        }
     }
 
 }
@@ -169,13 +169,16 @@ export class InputDropdownComponent {
         this._blur();
     }
 
-    public onInputKeyDownArrow(up : boolean){
+    public onInputKeyDownArrow(up : boolean, event : any){
+        event.preventDefault();
         if(up)
             this.Elements.Prev()
         else
             this.Elements.Next();
-        if(this.Elements.Selected())
-            this.InputString = this.Settings.GetElemInfo(this.Elements.Selected());
+        if(this.Elements.Selected()){
+            let str = this.Settings.GetElemInfo(this.Elements.Selected());
+            this.InputString = str;
+        }
     }
 
 }

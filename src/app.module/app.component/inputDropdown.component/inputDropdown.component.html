@@ -1,8 +1,8 @@
 <div class="input-dropdown">
 	<input [(ngModel)]="InputString" 
 		(input)="onInputChange($event.target.value)" 
-		(keydown.arrowup)="onInputKeyDownArrow(true)" 
-		(keydown.arrowdown)="onInputKeyDownArrow(false)" 
+		(keydown.arrowup)="onInputKeyDownArrow(true, $event)" 
+		(keydown.arrowdown)="onInputKeyDownArrow(false, $event)" 
 		(keydown.enter)="onChoseElement(Elements.Selected())"
 		(focus)="onFocusChange(true)"
 		(focusout)="onFocusChange(false)"
