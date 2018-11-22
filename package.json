@@ -1,11 +1,11 @@
 {
-	"name": "weatherApp",
-	"version": "0.1.1",
-	"description": "weather SPA",
+	"name": "interRAOApp",
+	"version": "0.0.1",
+	"description": "interRAO SPA",
 	"author": "Kurochkin Artem",
 	"scripts": {
-		"dev": "webpack-dev-server --mode development --hot --open",
-		"build": "webpack --mode production",
+		"dev": "webpack-dev-server --mode=development --hot --open",
+		"build": "webpack --mode=production",
 		"build-vendors": "webpack --mode production --config ./vendor-webpack.config.js"
 	},
 	"dependencies": {
