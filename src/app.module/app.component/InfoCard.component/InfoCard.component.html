@@ -1,0 +1,12 @@
+<div class='info-card-container {{Data.type}}'>	
+	<div class='header'> 
+        <div class='logo'></div>
+        <div class='tittle'>{{Data.name}}</div>
+    </div>
+    <div class="body">
+        <div class='plan-value {{GetValueCompareClass(Data.planValue)}}'>{{Data.planValue}}</div>
+        <div class='prev-value {{GetValueCompareClass(Data.prevValue)}}'>{{Data.prevValue}}</div>
+        <div class='value {{GetValueClass()}}'>{{Data.value}}</div>
+        <div class='unit'>{{Data.unit}}</div>
+    </div>
+</div>
