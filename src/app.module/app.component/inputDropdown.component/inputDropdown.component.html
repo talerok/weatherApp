@@ -1,0 +1,21 @@
+<div class="input-dropdown">
+	<input [(ngModel)]="InputString" 
+		(input)="onInputChange($event.target.value)" 
+		(keydown.arrowup)="onInputKeyDownArrow(true, $event)" 
+		(keydown.arrowdown)="onInputKeyDownArrow(false, $event)" 
+		(keydown.enter)="onChoseElement(Elements.Selected())"
+		(focus)="onFocusChange(true)"
+		(focusout)="onFocusChange(false)"
+		placeholder="{{Settings.PlaceHolder}}">
+	<div class="found-elements">
+		<div class="found-element" *ngFor="let Element of Elements.Get()" 
+		[class.selected]="Elements.Selected() === Element" 
+		(mousedown)="onChoseElement(Element, $event)" 
+		(mouseenter)="Elements.Select(Element)">
+			<div>
+				{{Settings.GetElemInfo(Element)}}
+			</div>
+		</div>
+	</div>
+</div>
+

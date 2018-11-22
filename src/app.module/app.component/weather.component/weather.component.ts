@@ -8,7 +8,10 @@ import { openWeatherService } from '../../../services/openWeatherService';
 @Component({
     selector: 'weather',
     templateUrl: './weather.component.html',
+<<<<<<< HEAD
     styleUrls: ['./weather.component.less'],
+=======
+>>>>>>> parent of 3a15fdf... Initial commit
     providers: [
         {provide: IWeatherService, useClass: openWeatherService}
     ]
