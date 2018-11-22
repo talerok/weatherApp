@@ -8,6 +8,7 @@ import { openWeatherService } from '../../../services/openWeatherService';
 @Component({
     selector: 'weather',
     templateUrl: './weather.component.html',
+    styleUrls: ['./weather.component.less'],
     providers: [
         {provide: IWeatherService, useClass: openWeatherService}
     ]

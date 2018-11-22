@@ -45,23 +45,23 @@ export class CityWeatherComponent {
             return "cloud-ico";
         return "clouds-ico";
     }
-    //27.5
+
     public FormatWindDirection(ang : number){
-        if(ang >= 342.5 || ang < 27.5)
+        if(ang >= 330 || ang < 30)
             return "С";
-        if(ang >= 27.5 && ang < 72.5)
+        if(ang >= 30 && ang < 60)
             return "СВ";
-        if(ang >= 72.5 && ang < 117.5)
+        if(ang >= 60 && ang < 120)
             return "В";
-        if(ang >= 117.5 && ang < 162.5)
+        if(ang >= 120 && ang < 150)
             return "ЮВ";
-        if(ang >= 162.5 && ang < 207.5)
+        if(ang >= 150 && ang < 210)
             return "Ю";
-        if(ang >= 207.5 && ang < 252.5)
+        if(ang >= 210 && ang < 240)
             return "ЮЗ"; 
-        if(ang >= 252.5 && ang < 297.5)
+        if(ang >= 240 && ang < 300)
             return "З";
-        if(ang >= 297.5 && ang < 342.5)
+        if(ang >= 300 && ang < 330)
             return "СЗ";
     }
 

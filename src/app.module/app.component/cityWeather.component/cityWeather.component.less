@@ -1,6 +1,4 @@
-@import "../../commonStyle.less";
-
-
+@main-color: rebeccapurple;
 .default-ico{
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -37,9 +35,10 @@
 	transition: 2s;
 	overflow: hidden;
 	height: 220px;
-	.shadow;
+	user-select: none;
+	box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.25);
 	position: relative;
-	.user-selec-none;
+
 	&:not(.active){
 		height: 0px;
 	}
